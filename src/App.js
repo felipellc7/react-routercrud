@@ -16,7 +16,6 @@ function App() {
     const queryAPI = async () => {
       const result = await axios('http://localhost:4000/restaurant');
       setProducts(result.data);
-      console.log(result.data );
     }
     queryAPI();
   }, [])
@@ -26,8 +25,12 @@ function App() {
       <Header/>
       <main className="container mt-5">
         <Switch>
+          <Route exact path="/products" render={() => {
+              return (
+                <Products products={products} />
+              )
+            }} />
           <Route exact path="/new-product" component={AddProduct} />
-          <Route exact path="/products" component={Products} />
           <Route exact path="/products/:id" component={Product} />
           <Route exact path="/products/edit/:id" component={EditProduct} />
         </Switch>
