@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Error from './Error';
 import axios from 'axios';
+import Swal from 'sweetalert2'
+import { withRouter } from 'react-router-dom';
 
-const AddProduct = () => {
+
+const AddProduct = ({history}) => {
   const [saucerName, setSaucerName] = useState('');
   const [saucerPrice, setSaucerPrice] = useState('');
   const [category, setCategory] = useState('');
@@ -26,9 +29,22 @@ const AddProduct = () => {
         category
       })
       console.log(result);
+      if (result.status === 201) {
+        Swal.fire(
+          'Ok',
+          'Product save successfully!',
+          'success'
+        )
+      }
     } catch (e) {
       console.log(e);
+      Swal.fire({
+        type: 'error',
+        title: 'Error, try again!',
+        text: 'success'
+      })
     }
+    history.push('/products');
   }
 
   return (
@@ -119,4 +135,4 @@ const AddProduct = () => {
   )
 }
 
-export default AddProduct;
+export default withRouter(AddProduct);
