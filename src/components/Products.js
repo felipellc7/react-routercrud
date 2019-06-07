@@ -1,9 +1,9 @@
-import React from 'react';
-import ProductList from './Product';
+import React, { Fragment } from 'react';
+import ProductList from './ProductList';
 
 const Products = ({products}) => {
   return (
-    <div>
+    <Fragment>
       <h1 className="text-center">Products</h1>
       <ul className="list-group mt-5">
         { products.map( product => (
@@ -13,7 +13,7 @@ const Products = ({products}) => {
           />
         )) }
       </ul>
-    </div>
+    </Fragment>
   )
 }
 
