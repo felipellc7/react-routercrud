@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
+
 import Products from './components/Products';
 import Product from './components/Product';
 import AddProduct from './components/AddProduct';
 import EditProduct from './components/EditProduct';
 import Header from './components/Header';
 
+
 function App() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const queryAPI = async () => {
+      const result = await axios('http://localhost:4000/restaurant');
+      setProducts(result.data);
+      console.log(result.data );
+    }
+    queryAPI();
+  }, [])
+
   return (
     <Router>
       <Header/>
