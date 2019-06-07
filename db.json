@@ -11,6 +11,12 @@
       "saucerPrice": "2000",
       "category": "test",
       "id": 2
+    },
+    {
+      "saucerName": "electronic",
+      "saucerPrice": "322",
+      "category": "main",
+      "id": 3
     }
   ]
 }

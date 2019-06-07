@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Error from './Error';
+import axios from 'axios';
 
 const AddProduct = () => {
   const [saucerName, setSaucerName] = useState('');
@@ -11,13 +12,23 @@ const AddProduct = () => {
     setCategory(e.target.value)
   }
 
-  const addProduct = e => {
+  const addProduct = async e => {
     e.preventDefault();
     if (saucerName === '' || saucerPrice === '' || category === '') {
       setError(true);
       return;
     }
     setError(false);
+    try {
+      const result = await axios.post('http://localhost:4000/restaurant', {
+        saucerName,
+        saucerPrice,
+        category
+      })
+      console.log(result);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   return (
