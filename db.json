@@ -29,6 +29,12 @@
       "saucerPrice": "122",
       "category": "dessert",
       "id": 5
+    },
+    {
+      "saucerName": "Ensalada",
+      "saucerPrice": "1222",
+      "category": "salad",
+      "id": 6
     }
   ]
 }

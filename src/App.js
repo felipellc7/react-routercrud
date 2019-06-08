@@ -11,14 +11,18 @@ import Header from './components/Header';
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [reloadProducts, setReloadProducts] = useState(true);
 
   useEffect(() => {
-    const queryAPI = async () => {
-      const result = await axios('http://localhost:4000/restaurant');
-      setProducts(result.data);
+    if (reloadProducts) {
+      const queryAPI = async () => {
+        const result = await axios('http://localhost:4000/restaurant');
+        setProducts(result.data);
+      }
+      queryAPI();
+      setReloadProducts(false);
     }
-    queryAPI();
-  }, [])
+  }, [reloadProducts])
 
   return (
     <Router>
@@ -29,7 +33,9 @@ function App() {
                 <Products products={products} />
               )
             } />
-          <Route exact path="/new-product" component={AddProduct} />
+          <Route exact path="/new-product" render={ () => (
+              <AddProduct setReloadProducts={setReloadProducts} />
+            )} />
           <Route exact path="/products/:id" component={Product} />
           <Route exact path="/products/edit/:id" component={EditProduct} />
         </Switch>
