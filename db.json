@@ -8,12 +8,12 @@
     },
     {
       "saucerName": "saucerTest",
-      "saucerPrice": "2000",
+      "saucerPrice": "1000",
       "category": "test",
       "id": 2
     },
     {
-      "saucerName": "electronic",
+      "saucerName": "electronicdance",
       "saucerPrice": "322",
       "category": "main",
       "id": 3
@@ -31,7 +31,7 @@
       "id": 5
     },
     {
-      "saucerName": "Ensalada",
+      "saucerName": "Salad",
       "saucerPrice": "1222",
       "category": "salad",
       "id": 6

@@ -41,7 +41,7 @@ function App() {
                 const IdProduct = parseInt(props.match.params.id)
                 const product = products.filter(product => product.id === IdProduct);
                 return(
-                <EditProduct product={product[0]} />
+                <EditProduct product={product[0]} setReloadProducts={setReloadProducts}/>
               )
             }}
             />
