@@ -17,10 +17,21 @@ const EditProduct = ({history, setReloadProducts, product}) => {
 
   const editProduct = async e => {
     e.preventDefault();
+
+    const newSaucerName = saucerNameRef.current.value;
+    const newSaucerPrice = saucerPriceRef.current.value;
+
+    if (newSaucerName === '' || newSaucerPrice === '' || category === '') {
+      setError(true)
+      return;
+    }
+
+    setError(false)
+
     let categorySaucer = (category === '') ? product.category : category
     const editSaucer = {
-      saucerName: saucerNameRef.current.value,
-      saucerPrice: saucerPriceRef.current.value,
+      saucerName: newSaucerName,
+      saucerPrice: newSaucerPrice,
       category: categorySaucer
     }
 

@@ -1,9 +1,9 @@
 {
   "restaurant": [
     {
-      "saucerName": "saucerTest",
+      "saucerName": "electronic",
       "saucerPrice": "2000",
-      "category": "test",
+      "category": "dessert",
       "id": 1
     },
     {
