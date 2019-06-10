@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import ProductList from './ProductList';
 
-const Products = ({products}) => {
+const Products = ({products, setReloadProducts}) => {
   return (
     <Fragment>
       <h1 className="text-center">Products</h1>
@@ -10,6 +10,7 @@ const Products = ({products}) => {
           <ProductList
             key={product.id}
             product={product}
+            setReloadProducts={setReloadProducts}
           />
         )) }
       </ul>

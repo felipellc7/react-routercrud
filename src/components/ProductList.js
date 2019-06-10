@@ -1,10 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Swal from 'sweetalert2'
 
-const ProductList = ({product}) => {
+const ProductList = ({product, setReloadProducts}) => {
 
   const deleteProduct = id => {
-    console.log("Delete ", id);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You wont able revert this',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtontext: 'Cancel',
+      confirmButtonText: 'Yes, delete it!'
+    }).then( async result => {
+      if (result.value) {
+        try {
+          const url = `http://localhost:4000/restaurant/${id}`
+
+          const result = await axios.delete(url);
+
+          if (result.status === 200) {
+            Swal.fire(
+              'Deleted!',
+              'Your saucer has been deleted!',
+              'success'
+            )
+          }
+          setReloadProducts(true)
+        } catch (e) {
+          Swal.fire({
+            type: 'error',
+            title: 'Error, try again!',
+            text: 'success'
+          })
+        }
+      }
+    })
   }
 
   return (

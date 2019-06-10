@@ -1,40 +1,16 @@
 {
   "restaurant": [
     {
-      "saucerName": "electronic",
-      "saucerPrice": "2000",
-      "category": "dessert",
-      "id": 1
-    },
-    {
-      "saucerName": "saucerTest",
-      "saucerPrice": "1000",
-      "category": "test",
-      "id": 2
-    },
-    {
       "saucerName": "electronicdance",
       "saucerPrice": "322",
       "category": "main",
       "id": 3
     },
     {
-      "saucerName": "electronic",
-      "saucerPrice": "12",
-      "category": "main",
-      "id": 4
-    },
-    {
       "saucerName": "electronic222",
       "saucerPrice": "122",
       "category": "dessert",
       "id": 5
-    },
-    {
-      "saucerName": "Salad",
-      "saucerPrice": "1222",
-      "category": "salad",
-      "id": 6
     }
   ]
 }

@@ -30,7 +30,7 @@ function App() {
       <main className="container mt-5">
         <Switch>
           <Route exact path="/products" render={ () => (
-                <Products products={products} />
+                <Products products={products} setReloadProducts={setReloadProducts} />
               )
             } />
           <Route exact path="/new-product" render={ () => (
