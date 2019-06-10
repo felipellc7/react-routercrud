@@ -37,7 +37,14 @@ function App() {
               <AddProduct setReloadProducts={setReloadProducts} />
             )} />
           <Route exact path="/products/:id" component={Product} />
-          <Route exact path="/products/edit/:id" component={EditProduct} />
+          <Route exact path="/products/edit/:id" render={ props => {
+                const IdProduct = parseInt(props.match.params.id)
+                const product = products.filter(product => product.id === IdProduct);
+                return(
+                <EditProduct product={product[0]} />
+              )
+            }}
+            />
         </Switch>
       </main>
     </Router>
